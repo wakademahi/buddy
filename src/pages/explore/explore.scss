@@ -1,0 +1,81 @@
+page-explore-ionic {
+    [pr]{
+        position: relative;
+    }
+    ion-content{
+        background: #F3F3F3 !important;
+    }
+    .marBottom{
+        margin-bottom: 20%;
+    }
+    .segmentBar{
+        .segment-button{
+            color: #003684;  
+        }
+        .segment-button.segment-activated {
+        border-bottom-color: #003684;
+        }
+    }
+    .searchbar-search-icon{
+        right: 25px !important;
+        left: unset !important;
+    } 
+    .searchbar-md .searchbar-input {
+        border-radius: 25px !important;
+        padding: 6px 35px 6px 20px !important;
+    }
+    .staffDiv{
+        padding: 0px 15px;
+        h4{
+            font-size: 18px;
+        }
+        .button{
+            text-transform: capitalize;
+            font-size: 13px;
+            font-weight: unset;
+            color: #5a5a5a;
+            background: transparent;
+            box-shadow: none;
+            border: 1px solid #5a5a5a;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+    .card-md{
+        margin: 5px 0px;
+        width: 100%;
+        .card-header-md{
+            padding: 10px 10px 0px;
+        }
+        .card-content-md{
+            padding: 0px 10px;
+            .grid .row {
+                [col-4]{
+                    margin: auto
+                }
+                [col-8]{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    .bottomDiv{
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        text-align: center;
+        bottom: 0px;
+        border-bottom: 6px solid #003894;
+    }
+    .end {
+        width: 25%;
+        margin-bottom: -2%;
+        /*background: #003894;
+        display: inline-block;
+        height: 45px;
+        width: 85px;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        margin-bottom: -5px; */
+    }
+} 

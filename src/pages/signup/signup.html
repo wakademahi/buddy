@@ -1,0 +1,64 @@
+<ion-header>
+    <!--  <img src="assets/imgs/logo.png" alt="logo" class="headerLogo">
+    <img src="assets/imgs/3 dots.png" alt="logo" class="headerSideLogo">-->
+</ion-header>
+<ion-content padding style="background:#003684;">
+    <div class="parent" *ngIf="domainPage" [style.height.px]="height" [style.width.px]="width">
+        <div class="domainDiv">
+            <p style="color: #FFF;">
+                <b>Doamin Address:</b>
+                <br/>http://{{domainAddress}}</p>
+            <ion-item class="otpInput">
+                <ion-input type="text" name="domain" [(ngModel)]="domainAddress"></ion-input>
+            </ion-item>
+            <button ion-button small class="" style="display: block;margin: 5% auto;" (click)="addDomain(domainAddress)">Submit</button>
+        </div>
+    </div>
+    <div class="main" *ngIf="signInPage">
+        <img src="assets/imgs/buddy logo.png" alt="logo" class="buddyIcon">
+        <!--<img src="assets/imgs/Buddy_text.png" alt="logo" class="buddyName">-->
+        <h1>SignUp</h1>
+        <ion-item pr class="mobileInput">
+            <ion-icon class="loginIcon fa fa-mobile" item-left primary></ion-icon>
+            <ion-input type="tel" name="mobileNo" [(ngModel)]="mobile" [maxlength]="10" onlyNumber placeholder="Enter Your Mobile Number"
+                (ionChange)="checkNumber(mobile)"></ion-input>
+        </ion-item>
+        <ion-row>
+            <ion-col col-7 pad0>
+                <ion-row *ngIf="showOtpDiv" class="otpDiv">
+                    <ion-col col-3 pad0>
+                        <ion-item class="otpInput">
+                            <ion-input type="tel" name="mobileNo" #otp1 [(ngModel)]="otpAdd.otp1" [maxlength]="1" onlyNumber (keyup)="next(otp2)"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-3 pad0>
+                        <ion-item class="otpInput">
+                            <ion-input type="tel" name="mobileNo" #otp2 [(ngModel)]="otpAdd.otp2" [maxlength]="1" onlyNumber (keyup)="next(otp3)"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-3 pad0>
+                        <ion-item class="otpInput">
+                            <ion-input type="tel" name="mobileNo" #otp3 [(ngModel)]="otpAdd.otp3" [maxlength]="1" onlyNumber (keyup)="next(otp4)"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-3 pad0>
+                        <ion-item class="otpInput">
+                            <ion-input type="tel" name="mobileNo" #otp4 [(ngModel)]="otpAdd.otp4" [maxlength]="1" onlyNumber></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col col-5 pad0>
+                <button ion-button icon-right small class="sendOtp" (click)="sendOtp(mobile)" *ngIf="ShowOtp">
+                    Send OTP
+                    <ion-icon name="ios-arrow-round-forward-outline"></ion-icon>
+                </button>
+                <button ion-button icon-right small class="sendOtp" *ngIf="showOtpDiv" (click)="verify(otpAdd)">
+                    Verify
+                    <ion-icon name="ios-checkmark"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+        <span class="resend" *ngIf="sendOtp">Resend</span>
+    </div>
+</ion-content>

@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-segment [(ngModel)]="page" class="segmentBar">
+    <ion-segment-button value="explore">
+      Explore
+    </ion-segment-button>
+    <ion-segment-button value="feed">
+      Feed
+    </ion-segment-button>
+  </ion-segment>
+<!--    <ion-buttons end class="menuBar" >
+        <button ion-button>
+            <img src="assets/imgs/3 dots.png" alt="sideMenu" class="sideImg" />
+        </button>
+    </ion-buttons>-->
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="page"  class="marBottom">
+    <ion-list *ngSwitchCase="'explore'">
+      <div padding-bottom>
+      <ion-searchbar class="searchBar" placeholder="Search your staff here" (ionInput)="getItems($event)" [(ngModel)]="searchText"></ion-searchbar>
+      </div>
+      <div class="staffDiv">
+        <h4>Formalities</h4>
+        <button ion-button color="light" round (click)="nextPage('preJoining')">Pre Joining</button>
+        <button ion-button color="light" round (click)="nextPage('postJoining')">Post Joining</button>
+        <h4>Services</h4>
+        <button ion-button color="light" round (click)="nextPage('cafeteria')">Cafeteria</button>
+        <button ion-button color="light" round (click)="nextPage('transportation')">Transportation</button>
+        <button ion-button color="light" round (click)="nextPage('parking')">Parking</button>
+        <h4>Get to know</h4>
+        <button ion-button color="light" round (click)="nextPage('establish')">Established Process</button>
+        <button ion-button color="light" round (click)="nextPage('organization')">Organizational Policies</button>
+        <h4>On the floor</h4>
+        <button ion-button color="light" round (click)="nextPage('leadership')">Leadership</button>
+        <button ion-button color="light" round (click)="nextPage('resource')">Resource Locator</button>
+        <h4>Contacts</h4>
+        <button ion-button color="light" round (click)="nextPage('contacts')">Point of Contacts</button>
+      </div>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'feed'">
+      <ion-card>
+        <ion-card-header>
+          <p>GOGREENRYDE - A GO GREEN INITIATE</p>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4>
+                      <img src="assets/imgs/ggr.png">
+              </ion-col>
+              <ion-col col-8>
+          Vehicle sharing mobile app to reduce fuel consumption, pollution and in turn save enviorment
+          <br/>
+          Read More at:
+          <p>https://www.gogreenryde.com</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+            <p>GREENDEAL - HELPING HAND TO FARMER</p>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-4>
+                        <img src="assets/imgs/greendeal_logo.png">
+                </ion-col>
+                <ion-col col-8>
+            Mobile app to encourage community to deal with farmers directly to encourage them towards more farming
+            <br/>
+            Read More at:
+            <p>https://www.greendeal.in</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <p>Step Towards Internet Of Things</p>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                          <img src="assets/imgs/greendeal_logo.png">
+                  </ion-col>
+                  <ion-col col-8>
+                    We have started to build and develop our skills for building the applications and products using internrt of things.
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>      
+    </ion-list>
+  </div>
+</ion-content>
+<div class="bottomDiv">
+    <!--<div class="end"></div>-->
+    <img src="assets/imgs/buddy_bottom.png" alt="Buddy_Img" class="end" (click)="gotoHomePage()"/>
+  </div>

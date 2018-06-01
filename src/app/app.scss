@@ -14,3 +14,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.footer{
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+    border-bottom: 5px solid #9e978e;
+}
+.top {
+    background: #9e978e;
+    display: inline-block;
+    height: 45px;
+    width: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    margin-bottom: -5px; 
+}
+.toolbar-background{
+    background:#003685; 
+}
+.toolbar-title,.bar-button{
+    color: #FFF;
+}

@@ -1,0 +1,29 @@
+page-post-joining {
+    .scroll-content {
+        display: table !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    ion-content{
+        background: #F3F3F3 !important;
+    }
+    .main {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .backBtn{
+        background: #FFF;
+        color: #5a5a5a;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    .postMessage{
+        color: #7d7d7d;
+    }
+    .postJoining{
+        width: 40%;
+        display: block;
+        margin: auto;
+    }
+}

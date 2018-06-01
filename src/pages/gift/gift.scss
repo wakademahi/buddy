@@ -1,0 +1,67 @@
+page-gift {
+    [center]{
+        text-align: center;
+    }
+    [auto]{
+        margin:auto;
+    }
+    [pr]{
+        position: relative;
+    }
+    .headerLogo {
+        height: 40px;
+        margin: 5px 10px 0px;
+    }
+    .toolbar-background {
+        background: #003884;
+    }
+    .toolbar .bar-button {
+        color: #437cda;
+    }
+    .sideImg{
+        width: 30%;
+        vertical-align: middle;
+    }
+    .card-header h1{
+        color: #003894;
+        font-weight: 500;
+    }
+    .message {
+        color: #7E7E7E;
+        margin: 10px 0px;
+        text-align: center;
+    }
+    .giftImg {
+        display: block;
+        margin-bottom: 10%;
+        img {
+            height: 200px;
+            width: 100%;
+            margin: auto;
+        }
+    }
+    .card .item.item-block .item-inner {
+        border-bottom: 1px solid #dedede;
+    }
+    .userForm {
+        .item {
+            padding-left: 0px;
+        }
+    }
+    .bottomDiv {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        text-align: center;
+        bottom: 0px;
+    }
+    .end {
+        background-image: linear-gradient(to right,red,#f06d06);
+        display: inline-block;
+        height: 15px;
+        width: 98%;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        margin-bottom: -3%;
+    }
+}

@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar  hideBackButton="true">
+    <img src="assets/imgs/small_buddy.png" alt="logo" class="headerLogo">
+    <img src="assets/imgs/Buddy_text.png" alt="logo" class="headerLogo" style="height: 35px;">
+    <ion-buttons end class="menuBar" >
+        <button ion-button icon-only (click)="gotoExpore()">
+            <ion-icon name="md-list"></ion-icon>
+            <!--<img src="assets/imgs/nevigation.png" alt="sideMenu" class="sideImg" />-->
+        </button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="">
+        <ion-card>
+            <ion-card-header center>
+                <h1>Nice Choice!</h1>
+                <p class="message">Help us with your address to deliver a gift</p>
+            </ion-card-header>
+            <ion-card-content>
+                <div class="giftImg">
+                    <img src="assets/imgs/pen.png" />
+                </div>
+                <div class="userForm" padding-bottom>
+                    <ion-item>
+                        <ion-label floating>Name</ion-label>
+                        <ion-input type="text" name="name" onlyChar value="Aditya Sharma"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Delivery Address</ion-label>
+                        <ion-textarea name="delivery_address" value="Flat No 101, Vedant Apt, Bhagawn nagar, Wakad Pune"></ion-textarea>
+                    </ion-item>
+                </div>
+                <div center>
+                    <button ion-button round small (click)="goHome()" color="themeColor">Done</button>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
+
+<div class="bottomDiv" (click)="gotoPage()">
+    <div class="end"></div>
+</div>

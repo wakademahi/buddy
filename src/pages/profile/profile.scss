@@ -1,0 +1,60 @@
+page-profile-ionic {
+    [auto]{
+        margin:auto;
+    }
+    [pr]{
+        position: relative;
+    }
+    .headerLogo {
+        height: 40px;
+        margin: 5px 10px 0px;
+    }
+    .toolbar-background {
+        background: #003884;
+    }
+    .toolbar .bar-button {
+        color: #437cda;
+    }
+    .sideImg{
+        width: 30%;
+        vertical-align: middle;
+    } .bottomDiv {
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        text-align: center;
+        bottom: 0px;
+    }
+    .end {
+        background-image: linear-gradient(to right,red,#f06d06);
+        display: inline-block;
+        height: 15px;
+        width: 98%;
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        margin-bottom: -3%;
+    }
+ [center] {
+        text-align: center;
+    }
+    .profileImg {
+        display: block;
+        img {
+            line-height: 95px;
+            height: 95px;
+            width: 95px;
+            border-radius: 50%;
+            border: 1px solid #CCC;
+            padding: 1px;
+            margin: auto;
+        }
+    }
+    .card .item.item-block .item-inner {
+        border-bottom: 1px solid #dedede;
+    }
+    .userForm {
+        .item {
+            padding-left: 0px;
+        }
+    }
+} 

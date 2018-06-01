@@ -1,0 +1,127 @@
+page-signup {
+    .header {
+        background: #FFF;
+    }
+    .headerLogo {
+        height: 40px;
+        margin: 5px 10px 0px;
+    }
+    .headerSideLogo {
+        height: 10px;
+        float: right;
+        margin: 5%;
+    }
+    .buddyIcon {
+        display: block;
+        margin: 10% auto 0px;
+        width: 50%;
+    }
+    .buddyName {
+        display: block;
+        margin: auto;
+        margin-right: 20%;
+        /* margin-top: -6%;*/
+        height: 65px;
+    }
+    /*   .scroll-content {
+        display: table !important;
+        width: 100% !important;
+        height: 100% !important;
+    } */
+    .parent {
+        position: relative;
+    }
+    .domainDiv {
+        position: absolute;
+        top: 50%;
+        left: 46%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 94%;
+    }
+    .main {
+        h1 {
+            margin: 0px;
+            font-size: 5.6rem;
+            color: #213abd;
+        }
+    }
+    .loginIcon {
+        position: absolute;
+        left: 7px;
+        top: 15%;
+        margin: auto !important;
+        color: map-get($colors, accent);
+        font-size: 2em;
+        color: #FF9800;
+    }
+    .mobileInput {
+        border: 1px solid #5a5a5a;
+        position: static;
+        min-height: 4rem;
+        height: 4rem;
+    }
+    .mobileInput .item-inner {
+        border-bottom: none;
+    }
+    .mobileInput .item-inner .input-wrapper {
+        border-left: 1px solid #003684;
+        .text-input {
+            margin-left: 5%;
+        }
+    }
+    .sendOtp {
+        background: #000;
+        color: #fff;
+        text-transform: capitalize;
+        width: 99%;
+        margin-right: 0px;
+        font-weight: 100;
+        .icon {
+            font-size: 2em;
+        }
+    }
+    .sendOtp.button:hover:not(.disable-hover) {
+        background-color: #000;
+    }
+    [pad0] {
+        padding: 0px;
+    }
+    .otpInput {
+        padding-left: 0px;
+        height: 2em;
+        font-size: 1.3rem;
+        min-height: 2em;
+        .item-inner {
+            padding-right: 0px !important;
+            border-bottom: none !important;
+        }
+        .text-input {
+            margin: auto;
+            width: calc(100% - 0px);
+            text-align: center;
+        }
+    }
+    .item.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: none !important;
+        box-shadow: none !important;
+    }
+    .otpDiv {
+        margin-top: 0.2em;
+        border: 1px solid #003684;
+        height: 2em;
+        .col {
+            border-right: 1px solid #003684;
+        }
+    }
+    .otpDiv .row .col:last-child {
+        border-right: none;
+    }
+    .resend {
+        float: right;
+        font-weight: bold;
+        padding: 5px;
+        color: #003894;
+    }
+}

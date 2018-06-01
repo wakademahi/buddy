@@ -1,0 +1,22 @@
+page-pre-joining {
+    .desc{
+        margin: 0px;
+        overflow: unset;
+        color: #CCC;
+        font-size: 13px;
+    }
+    .customCard{
+        margin: 0px;
+        width: 100%;
+    }
+    .Doclist {
+        .item{
+            padding-left: 0px;
+        }
+        .item [item-end] {
+            margin: 0px;
+            padding: 5px;
+        }
+    }
+
+}

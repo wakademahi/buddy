@@ -1,0 +1,383 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <img src="assets/imgs/small_buddy.png" alt="logo" class="headerLogo">
+        <img src="assets/imgs/Buddy_text.png" alt="logo" class="headerLogo" style="height: 35px;">
+        <ion-buttons end class="menuBar">
+            <button ion-button icon-only (click)="gotoExpore()">
+                <ion-icon name="md-list"></ion-icon>
+                <!--<img src="assets/imgs/nevigation.png" alt="sideMenu" class="sideImg" />-->
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+<ion-content padding-bottom class="bg">
+    <div class="wrap" [style.height.px]="height" [style.width.px]="width">
+        <div class="cell">
+            <div padding-left padding-right class="clearfix cardDiv" *ngFor="let card of cards ; let i = index;">
+                <div class="system">
+                    <img src="assets/imgs/budyy_chat.png" class="Sicon" />
+                    <div *ngFor="let schat of card.cardDetails">
+                        <p class="chat" *ngIf="schat.messageType =='text'">{{schat.messageText}}</p>
+                        <div pr *ngIf="schat.messageType =='img'" style="display: inline-block;">
+                            <div class="chatImg">
+                                <img src="{{schat.messageText}}" />
+                            </div>
+                            <ion-icon name="ios-arrow-round-down" class="download" center></ion-icon>
+                        </div>
+                        <!--<div *ngIf="schat.messageType =='date'" style="display: inline-block;">
+                            <ion-item>
+                                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate" (ionCancel)="cancelDate(birthDate)" (ionChange)="setDate(birthDate)"
+                                    placeHolder="Please select Birth date.."></ion-datetime>
+                            </ion-item>
+                        </div>
+                        <div *ngIf="schat.messageType =='leadership'" style="display: inline-block;">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col col-4 auto>
+                                        <p class="leadershipMsg">Leaders at Greentin is provided by its Executive Committee and Board of Directors
+                                            with the aim of determining and implementing the Group's strategic direction.</p>
+                                        <img src="assets/imgs/arrow_ic.png" alt="Arrow" class="leaderArrow">
+                                    </ion-col>
+                                    <ion-col col-8 auto>
+                                        <ion-slides pager="false">
+                                            <ion-slide>
+                                                <ion-grid>
+                                                    <ion-row>
+                                                        <ion-col col-6 auto>
+                                                            <div class="">
+                                                                <div pr block class="leader">
+                                                                    <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                                    <ion-icon name="add" class="show" mini (click)="goLeaderPage()"></ion-icon>
+                                                                </div>
+                                                                <div class="userDesc">
+                                                                    <span class="leaderName">Raj Dubal</span>
+                                                                    Founder and Cheif Executive Officer
+                                                                </div>
+                                                            </div>
+                                                        </ion-col>
+                                                        <ion-col col-6 auto>
+                                                            <div class="">
+                                                                <div pr block class="leader">
+                                                                    <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                                    <ion-icon name="add" class="show" mini></ion-icon>
+                                                                </div>
+                                                                <div class="userDesc">
+                                                                    <span class="leaderName">Raj Dubal</span>
+                                                                    Founder and Cheif Executive Officer
+                                                                </div>
+                                                            </div>
+                                                        </ion-col>
+                                                    </ion-row>
+                                                </ion-grid>
+                                            </ion-slide>
+                                        </ion-slides>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </div>
+                        <p class="chat" pr *ngIf="schat.messageType =='link'">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                            type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised
+                            in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                            with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            <span class="read" (click)="goSafety()">Read More</span>
+                        </p>-->
+                    </div>
+                </div>
+                <div class="user clearfix">
+                    <div class="clearfix" *ngIf="card.reply == null">
+                        <p class="chat noBorder" *ngFor="let opt of card.optionsList">
+                            <button ion-button round small (click)="optClick(opt,i)">{{opt.optionText}}</button>
+                        </p>
+                    </div>
+                    <div class="clearfix" *ngIf="card.reply != null">
+                        <img src="assets/imgs/default_profile.png" class="Uicon" />
+                        <div>
+                            <p class="chat" style="text-transform: capitalize;">{{card.reply.optionText}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    <div class="" padding-left padding-right class="clearfix" *ngIf="yes">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Thanks, I will note it in my slambook.</p>
+            <p class="chat">You have a Greeting from a HR Director.</p>
+            <div pr>
+                <div class="chatImg">
+                    <img src="assets/imgs/logo.png" />
+                </div>
+                <ion-icon name="ios-arrow-round-down" class="download" center></ion-icon>
+            </div>
+            <p class="chat">What do you want to know about Greentin?</p>
+            <ion-label class="chat noBorder" *ngIf="!about">
+                <button ion-button round small (click)="about = true">About Greentin</button>
+                <button ion-button round small>People</button>
+                <button ion-button round small>Services</button>
+                <button ion-button round small>Organization</button>
+            </ion-label>
+        </div>
+        <div class="user clearfix" *ngIf="about">
+            <div class="clearfix">
+                <img src="assets/imgs/default_profile.png" class="Uicon" align="right" />
+            </div>
+            <p class="chat">About Greentin</p>
+        </div>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="about">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat" (click)="goAbout()">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.</p>
+            <ion-label class="chat noBorder" *ngIf="!aboutPage">
+                <button ion-button round small>People</button>
+                <button ion-button round small>Services</button>
+                <button ion-button round small>Organization Chart</button>
+            </ion-label>
+        </div>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="aboutPage">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Thanks for knowing Greentin</p>
+            <p class="chat">How about knowing organisation Leadership?</p>
+            <ion-label class="chat noBorder" *ngIf="!leaderDiv">
+                <button ion-button round small (click)="leaderDiv = true">Sure, Show me Leadership</button>
+                <button ion-button round small>Show me somthing else</button>
+            </ion-label>
+        </div>
+        <div class="user clearfix" *ngIf="leaderDiv">
+            <div class="clearfix">
+                <img src="assets/imgs/default_profile.png" class="Uicon" align="right" />
+            </div>
+            <p class="chat">Sure, Show me Leadership</p>
+        </div>
+    </div>*ngIf="leaderDiv"
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4 auto>
+                    <p class="leadershipMsg">Leaders at Greentin is provided by its Executive Committee and Board of Directors with the aim of determining and implementing the Group's strategic direction.</p>
+                    <img src="assets/imgs/arrow_ic.png" alt="Arrow" class="leaderArrow">
+                </ion-col>
+                <ion-col col-8 auto>
+                    <ion-slides pager="false">
+                        <ion-slide>
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col col-6 auto>
+                                        <div class="">
+                                            <div pr block class="leader">
+                                                <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                <ion-icon name="add" class="show" mini (click)="goLeaderPage()"></ion-icon>
+                                            </div>
+                                            <div class="userDesc">
+                                                <span class="leaderName">Raj Dubal</span>
+                                                Founder and Cheif Executive Officer
+                                            </div>
+                                        </div>
+                                    </ion-col>
+                                    <ion-col col-6 auto>
+                                        <div class="">
+                                            <div pr block class="leader">
+                                                <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                <ion-icon name="add" class="show" mini></ion-icon>
+                                            </div>
+                                            <div class="userDesc">
+                                                <span class="leaderName">Raj Dubal</span>
+                                                Founder and Cheif Executive Officer
+                                            </div>
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-slide>
+
+                        <ion-slide>
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col col-6>
+                                        <div class="">
+                                            <div pr block class="leader">
+                                                <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                <ion-icon name="add" class="show" mini></ion-icon>
+                                            </div>
+                                            <div class="userDesc">
+                                                The
+                                                <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with
+                                                integrated.
+                                            </div>
+                                        </div>
+                                    </ion-col>
+                                    <ion-col col-6>
+                                        <div class="">
+                                            <div pr block class="leader">
+                                                <img src="assets/imgs/default_profile.png" class="leaderImg">
+                                                <ion-icon name="add" class="show" mini></ion-icon>
+                                            </div>
+                                            <div class="userDesc">
+                                                The
+                                                <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with
+                                                integrated.
+                                            </div>
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="leaderPage">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Wonderful ! look like you enjoing journey to the Greentin!!</p>
+            <p class="chat">Hey Below is a list of policies that you may want to look into</p>
+            <ion-label class="chat noBorder" *ngIf="!safety">
+                <span class="buttonName">Policies</span>
+                <button ion-button round small (click)="safety = true">Safety and Health</button>
+                <button ion-button round small>Leaves</button>
+                <button ion-button round small>General Policies</button>
+            </ion-label>
+
+        </div>
+        <div class="user clearfix" *ngIf="safety">
+            <div class="clearfix">
+                <img src="assets/imgs/default_profile.png" class="Uicon" align="right" />
+            </div>
+            <p class="chat">Safety and Health</p>
+        </div>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="safety">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat" pr>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.
+                <span class="read" (click)="goSafety()">Read More</span>
+            </p>
+        </div>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="days">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Hi Aditya, some of interesting events are coming in next week, let's check it out...
+            </p>
+            <ion-label class="chat noBorder" *ngIf="!investor">
+                <button ion-button round small>Being Greentin</button>
+                <button ion-button round small (click)="goInvestor()">INVESTOR DAY</button>
+                <button ion-button round small>2018 Q3 Sal</button>
+            </ion-label>
+            <ion-label class="chat noBorder" *ngIf="investor">
+                <button ion-button round small>INVESTOR DAY</button>
+                <button ion-button round small>2018 Q3 Sales</button>
+            </ion-label>
+        </div>
+        <div class="user clearfix" *ngIf="investor">
+            <div class="clearfix">
+                <img src="assets/imgs/default_profile.png" class="Uicon" align="right" />
+            </div>
+            <p class="chat">INVESTOR DAY</p>
+        </div>
+    </div>-->
+    <!--*ngIf="days"-->
+    <!-- <div class="" padding-left padding-right class="clearfix" *ngIf="investor">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Can you please Complete below details for Preparation of your i-card Printing?</p>
+            <p class="chat" (click)="goProfile()">
+                <ion-row class="userEdit">
+                    <ion-col col-4>Name</ion-col>
+                    <ion-col>Aditya Sharma</ion-col>
+                    <ion-col col-1>
+                        <ion-item>
+                            <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="userEdit">
+                    <ion-col col-4>Designation</ion-col>
+                    <ion-col>UI/UX Designer</ion-col>
+                    <ion-col col-1>
+                        <ion-item>
+                            <ion-checkbox color="dark" checked="edit==true"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="userEdit">
+                    <ion-col col-4>Emergency Number</ion-col>
+                    <ion-col>
+                        <span *ngIf="!edit">xxx-xxx-xxxx</span>
+                        <span *ngIf="edit">965-784-8857</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-item>
+                            <ion-checkbox color="dark" checked="edit==true"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="userEdit">
+                    <ion-col col-4>Blood Group</ion-col>
+                    <ion-col>
+                        <span *ngIf="edit">B+ve</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-item>
+                            <ion-checkbox color="dark" checked="edit==true"></ion-checkbox>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </p>
+            <p class="chat" *ngIf="edit">
+                Thanks Aditya,
+                <br/> You eill get your i-card on your 1st day at Greentin
+            </p>
+            <p class="chat" *ngIf="edit">
+                Buddy, select your welcome gift
+            </p>
+            <ion-label *ngIf="edit" class="giftImg">
+                <p class="chat" (click)="gift = true">
+                    <img src="assets/imgs/pen.png" />
+                </p>
+                <p class="chat">
+                    <img src="assets/imgs/pen.png" />
+                </p>
+                <p class="chat">
+                    <img src="assets/imgs/pen.png" />
+                </p>
+            </ion-label> 
+        </div>
+        <div class="user clearfix" *ngIf="gift">
+            <div class="clearfix">
+                <img src="assets/imgs/default_profile.png" class="Uicon" align="right" />
+            </div>
+            <p class="chat giftImg" style="background: #FFF;">
+                <img src="assets/imgs/ggr.png" />
+            </p>
+        </div>
+    </div>
+    <div class="" padding-left padding-right class="clearfix" *ngIf="gift">
+        <div class="system" pr>
+            <img src="assets/imgs/default_profile.png" class="Sicon" />
+            <p class="chat">Get your complimentory coupons from below gift selection
+            </p>
+        </div>
+    </div>-->
+</ion-content>
+
+<div class="bottomDiv" (click)="gotoPage()">
+    <div class="end"></div>
+</div>

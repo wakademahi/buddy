@@ -1,0 +1,43 @@
+<ion-header color="themeColor">
+  <ion-navbar>
+    <ion-title>Pre Joining</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<div>
+  <ion-card class="customCard">
+    <ion-card-header>
+      Help us providing below list of documents
+      <ion-label class="desc">(You can add multiple documents by using plus sign)</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="Doclist">
+        <ion-item> 
+          Experience Letters
+          <button ion-button icon-only item-end>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          Education Certificates
+          <button ion-button icon-only item-end (click)="education()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          PAN Card
+          <button ion-button icon-only item-end>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          Adhar Card
+          <button ion-button icon-only item-end>
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

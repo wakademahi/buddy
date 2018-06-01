@@ -1,0 +1,51 @@
+page-gift-voucher {
+    [auto]{
+        margin:auto;
+    }
+    [pr]{
+        position: relative;
+    }
+    .headerLogo {
+        height: 40px;
+        margin: 5px 10px 0px;
+    }
+    .toolbar-background {
+        background: #003884;
+    }
+    .toolbar .bar-button {
+        color: #437cda;
+    }
+    .sideImg{
+        width: 30%;
+        vertical-align: middle;
+    }
+    .card{
+        box-shadow: none;
+    }
+    .giftSection1{
+        background-image: linear-gradient(to top,red,#f06d06);
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        .grid .row .col{
+            .name{
+                text-align: center;
+                color: #FFF;
+                position: absolute;
+                z-index: 999;
+                right: 0;
+                left: 0px;
+                bottom: 5%;
+            }
+        }
+    }
+    .giftSection2{
+        background-image: linear-gradient(to top,red,#f06d06);
+        padding: 5%;
+        .buddyImg{
+            width: 30%;
+            display: block;
+            margin: auto;
+            padding-top: 10%;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<ion-header>
+        <ion-navbar  hideBackButton="true">
+        <img src="assets/imgs/small_buddy.png" alt="logo" class="headerLogo">
+        <img src="assets/imgs/Buddy_text.png" alt="logo" class="headerLogo" style="height: 35px;">
+        <ion-buttons end class="menuBar" >
+            <button ion-button icon-only (click)="gotoExpore()">
+                <ion-icon name="md-list"></ion-icon>
+                <!--<img src="assets/imgs/nevigation.png" alt="sideMenu" class="sideImg" />-->
+            </button>
+        </ion-buttons>
+      </ion-navbar>
+    </ion-header>
+<ion-content>
+    <div class="">
+        <ion-card>
+            <ion-card-content>
+                <div class="profileImg">
+                    <img src="assets/imgs/default_profile.png" />
+                </div>
+                <div class="userForm" padding-bottom>
+                    <ion-item>
+                        <ion-label floating>Name</ion-label>
+                        <ion-input type="text" name="name" onlyChar value="Aditya Sharma"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Designation</ion-label>
+                        <ion-input type="text" name="mobileNo" onlyNumber value="UI/UX Designer"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Emergency Number</ion-label>
+                        <ion-input type="tel" name="mobileNo" onlyNumber value="9657848857"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Blood Group</ion-label>
+                        <ion-input type="text" name="mobileNo" value="B+ve"></ion-input>
+                    </ion-item>
+                </div>
+                <div center>
+                    <button ion-button round small  color="themeColor" (click)="gotoHomePage()">Done</button>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
+<div class="bottomDiv" (click)="gotoGiftVoucher()">
+    <div class="end"></div>
+</div>
