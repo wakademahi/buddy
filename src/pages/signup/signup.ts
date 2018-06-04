@@ -103,7 +103,7 @@ export class SignupPage {
             this.res.push(data);
             localStorage.setItem('cards', JSON.stringify(this.res));
             setTimeout(() => {
-              this.navCtrl.push(HomePage);
+              this.navCtrl.setRoot(HomePage);
             }, 100);
           }
         });

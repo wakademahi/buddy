@@ -67,6 +67,13 @@ page-home {
         box-shadow: 0px 1px 8px #ddd;
         width: fit-content;
     }
+	.dateDiv{ 
+		.item{
+			box-shadow: 0px 1px 8px #444;
+			padding-left:0px;
+			border-radius: 25px;
+		}
+	}
     .highlight {
         color: #003894;
     }
@@ -170,7 +177,9 @@ page-home {
         img {
             margin: auto;
             max-width: 150px;
-            opacity: 0.2;
+            /*opacity: 0.2;*/
+			height: 75px;
+			width: 100%;
         }
     }
     .download {
@@ -183,6 +192,7 @@ page-home {
         border-radius: 50%;
         height: 30px;
         width: 30px;
+		font-weight:bold;
     }
     [block] {
         display: grid;

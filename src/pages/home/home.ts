@@ -84,8 +84,10 @@ export class HomePage {
     this.navCtrl.push(GiftVoucherPage);
   }
   aboutPage = false;
-  goAbout() {
-    this.navCtrl.push(AboutPage);
+  goAbout(data) {
+    this.navCtrl.push(AboutPage,{
+		val:data
+	});
     setTimeout(() => {
       this.aboutPage = true;
     }, 100);

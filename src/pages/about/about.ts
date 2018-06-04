@@ -13,12 +13,15 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'about.html',
 })
 export class AboutPage {
-
+	aboutData;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
+	this.aboutData = this.navParams.get('val');
+	console.log(this.aboutData);
   }
 
 }

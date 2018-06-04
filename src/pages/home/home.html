@@ -25,13 +25,14 @@
                             </div>
                             <ion-icon name="ios-arrow-round-down" class="download" center></ion-icon>
                         </div>
-                        <!--<div *ngIf="schat.messageType =='date'" style="display: inline-block;">
+                        <div *ngIf="schat.messageType =='datepicker'" class="dateDiv">
                             <ion-item>
-                                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate" (ionCancel)="cancelDate(birthDate)" (ionChange)="setDate(birthDate)"
+                                <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="birthDate" (ionCancel)="cancelDate(birthDate)" (ionChange)="setDate(birthDate)"
                                     placeHolder="Please select Birth date.."></ion-datetime>
+									<ion-icon item-end name="calendar"></ion-icon>
                             </ion-item>
                         </div>
-                        <div *ngIf="schat.messageType =='leadership'" style="display: inline-block;">
+                        <!--<div *ngIf="schat.messageType =='leadership'" style="display: inline-block;">
                             <ion-grid>
                                 <ion-row>
                                     <ion-col col-4 auto>
