@@ -16,7 +16,7 @@ export class AuthProvider {
   authenticate(val) {
     return new Promise(resolve => {
       var apiUrl = "HRBuddy/login";
-      var objt = { mobile: val };
+      var objt = { mobile_Number: val };
       console.log(apiUrl + '==' + JSON.stringify(objt));
       this.http.post(apiUrl, JSON.stringify(objt)).subscribe(data => {
         resolve(data.json());
@@ -47,13 +47,13 @@ export class AuthProvider {
       if (optId == '') {
         objt = {
           "workFlowId": 1,
-          "userId": 123,
+          "userId": localStorage.getItem('userId'),
           "isOptionSelected": "NO"
         }
       } else {
         objt = {
           "workFlowId": 1,
-          "userId": 123,
+          "userId": localStorage.getItem('userId'),
           "isOptionSelected": "YES",
           "selectedOptionId": optId
         }
