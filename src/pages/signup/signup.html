@@ -2,19 +2,8 @@
     <!--  <img src="assets/imgs/logo.png" alt="logo" class="headerLogo">
     <img src="assets/imgs/3 dots.png" alt="logo" class="headerSideLogo">-->
 </ion-header>
-<ion-content padding style="background:#003684;">
-    <div class="parent" *ngIf="domainPage" [style.height.px]="height" [style.width.px]="width">
-        <div class="domainDiv">
-            <p style="color: #FFF;">
-                <b>Doamin Address:</b>
-                <br/>http://{{domainAddress}}</p>
-            <ion-item class="otpInput">
-                <ion-input type="text" name="domain" [(ngModel)]="domainAddress"></ion-input>
-            </ion-item>
-            <button ion-button small class="" style="display: block;margin: 5% auto;" (click)="addDomain(domainAddress)">Submit</button>
-        </div>
-    </div>
-    <div class="main" *ngIf="signInPage">
+<ion-content padding style="background:#003684;" [style.height.px]="height" [style.width.px]="width">
+    <div class="main">
         <img src="assets/imgs/buddy logo.png" alt="logo" class="buddyIcon">
         <!--<img src="assets/imgs/Buddy_text.png" alt="logo" class="buddyName">-->
         <h1>SignUp</h1>

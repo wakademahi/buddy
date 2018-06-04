@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, LoadingController, Platform, MenuController, Content, ToastController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams, LoadingController, Platform, MenuController,ToastController } from 'ionic-angular';
 
 import { GiftPage } from '../gift/gift';
 import { AboutPage } from '../about/about';
@@ -9,19 +9,13 @@ import { ProfilePage } from '../profile/profile';
 import { ExplorePage } from '../explore/explore';
 import { AuthProvider } from '../../providers/auth/auth';
 import { GiftVoucherPage } from '../gift-voucher/gift-voucher';
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 })
 export class HomePage {
-  @ViewChild(Content) content: Content;
   cards: any = [];
   PrevCards: any = [];
   height; width;
@@ -34,19 +28,12 @@ export class HomePage {
     this.width = this.platform.width();
     console.log(this.height + '==' + this.width);
   }
-  callFunction() {
-    this.content.scrollToBottom(0);
-  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
   ionViewDidEnter() {
-    //    this.content.scrollToBottom(300);//300ms animation speed
-    /* if (!localStorage.getItem('cards')) {
-       setTimeout(() => {
-         this.showNextEvent(1, '');
-       }, 300)
-     }*/
+  
   }
   showNextEvent(flowId, optId) {
     if (localStorage.getItem('cards')) {

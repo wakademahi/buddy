@@ -62,8 +62,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       let userId = localStorage.getItem('userId');
-      let domain = localStorage.getItem('domain');
-      if ((userId != '' && userId != undefined) || (domain != '' && domain != undefined)) {
+      if (userId != '' && userId != undefined) {
         this.rootPage = HomePage;
       } else {
         this.rootPage = SignupPage;
