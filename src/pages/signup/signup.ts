@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, MenuController, LoadingController, Platform, AlertController } from 'ionic-angular';
+import { NavController, NavParams, MenuController, LoadingController, Platform, AlertController,ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -12,7 +12,7 @@ export class SignupPage {
   width;
   domainPage = true;
   signInPage = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public auth: AuthProvider, public loadingCtrl: LoadingController, public platform: Platform, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public auth: AuthProvider, public loadingCtrl: LoadingController, public platform: Platform, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.menu.swipeEnable(false);
 
     this.height = this.platform.height();
@@ -81,16 +81,27 @@ export class SignupPage {
         this.showOtpDiv = false;
         this.ShowOtp = true;
       }
-    });
+    }); 
   }
 
   next(el) {
     el.setFocus();
   }
-  otpAdd = [];
+  otpAdd :any = [];
   res = [];
   verify(val) {
-    let newOtp = val.otp1 + '' + val.otp2 + '' + val.otp3 + '' + val.otp4;
+   var newOtp;
+    if(val.otp4 != undefined){
+      newOtp = val.otp1 + '' + val.otp2 + '' + val.otp3+ ''+val.otp4;
+    }else{
+      newOtp = val.otp1 + '' + val.otp2 + '' + val.otp3;
+    }
+    let loader = this.loadingCtrl.create({
+      content: 'Please wait...',
+      enableBackdropDismiss: false,
+      dismissOnPageChange: true
+    });
+    loader.present();
     // this.navCtrl.push(HomePage);
     console.log(newOtp + '==' + this.otp);
     this.auth.verify(newOtp, this.tempId).then((data: any) => {
@@ -98,6 +109,7 @@ export class SignupPage {
         var name = data.first_name + ' ' + data.last_name;
         localStorage.setItem('userName', name);
         localStorage.setItem('userId', data.user_id);
+        loader.dismiss();
         this.auth.getCards(1, '').then((data: any) => {
           if (data.cardDetails != null) {
             this.res.push(data);
@@ -108,10 +120,25 @@ export class SignupPage {
           }
         });
       } else {
+        this.presentToast('Please enter correct OTP','middle');
+        this.otpAdd.otp1 = '';
+        this.otpAdd.otp2 = '';
+        this.otpAdd.otp3 = '';
+        if(this.otpAdd.otp4 != undefined){
+          this.otpAdd.otp4 = '';
+        }
+        loader.dismiss();
         localStorage.clear();
       }
     });
   }
-
+ presentToast(message, position) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: position
+    });
+    toast.present();
+  }
 }
 

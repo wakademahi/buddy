@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, Platform, MenuController,ToastController } from 'ionic-angular';
+import { Component ,ViewChild} from '@angular/core';
+import { NavController, NavParams, LoadingController, Platform, MenuController,ToastController,Content } from 'ionic-angular';
 
 import { GiftPage } from '../gift/gift';
 import { AboutPage } from '../about/about';
@@ -9,6 +9,8 @@ import { ProfilePage } from '../profile/profile';
 import { ExplorePage } from '../explore/explore';
 import { AuthProvider } from '../../providers/auth/auth';
 import { GiftVoucherPage } from '../gift-voucher/gift-voucher';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { OrderPipe } from 'ngx-order-pipe';
 
 
 @Component({
@@ -16,10 +18,12 @@ import { GiftVoucherPage } from '../gift-voucher/gift-voucher';
   templateUrl: 'home.html',
 })
 export class HomePage {
+
+  @ViewChild(Content) content: Content;
   cards: any = [];
   PrevCards: any = [];
   height; width;
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public auth: AuthProvider, public platform: Platform, public toastCtrl: ToastController) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public auth: AuthProvider, public platform: Platform, public toastCtrl: ToastController,public imgView:PhotoViewer) {
     this.menu.swipeEnable(false);
     setTimeout(() => {
       this.cards = JSON.parse(localStorage.getItem('cards'));
@@ -29,6 +33,9 @@ export class HomePage {
     console.log(this.height + '==' + this.width);
   }
   
+  callFunction() {
+    this.content.scrollToBottom(0);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
@@ -79,6 +86,9 @@ export class HomePage {
   }
   setDate(date) {
     this.birthDate = date;
+  }
+  openImg(img){
+  this.imgView.show(img);
   }
   gotoPage() {
     this.navCtrl.push(GiftVoucherPage);

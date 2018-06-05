@@ -18,7 +18,7 @@ export class ExplorePage {
 
   }
   gotoHomePage(){
-    this.navCtrl.push(HomePage);
+    this.navCtrl.setRoot(HomePage);
   }
   nextPage(page){
     if(page=='preJoining'){

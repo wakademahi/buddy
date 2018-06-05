@@ -1,4 +1,7 @@
 page-signup {
+[pr]{
+    positive:relative;
+}
     .header {
         background: #FFF;
     }
@@ -48,13 +51,12 @@ page-signup {
     }
     .loginIcon {
         position: absolute;
-        left: 7px;
-        top: 15%;
+        left: 3%;
         margin: auto !important;
-        color: map-get($colors, accent);
         font-size: 2em;
-        color: #FF9800;
+        color: #ff9800;
     }
+
     .mobileInput {
         border: 1px solid #5a5a5a;
         position: static;
@@ -122,6 +124,7 @@ page-signup {
         float: right;
         font-weight: bold;
         padding: 5px;
-        color: #003894;
+        color: #689ef7;
+        margin-top:5%;
     }
 }

@@ -14,24 +14,25 @@
 <ion-content padding-bottom class="bg">
     <div class="wrap" [style.height.px]="height" [style.width.px]="width">
         <div class="cell">
-            <div padding-left padding-right class="clearfix cardDiv" *ngFor="let card of cards ; let i = index;">
+            <div padding-left padding-right class="clearfix cardDiv" *ngFor="let card of cards; let i = index;let last = last;">
+                <span>{{last ? callFunction() : ''}}</span>
                 <div class="system">
                     <img src="assets/imgs/budyy_chat.png" class="Sicon" />
                     <div *ngFor="let schat of card.cardDetails">
                         <p class="chat" *ngIf="schat.messageType =='text'">{{schat.messageText}}</p>
-                        <div pr *ngIf="schat.messageType =='img'" style="display: inline-block;">
+                        <div pr *ngIf="schat.messageType =='img'" style="display: inline-block;" (click)="openImg(schat.messageText)">
                             <div class="chatImg">
                                 <img src="{{schat.messageText}}" />
                             </div>
                             <ion-icon name="ios-arrow-round-down" class="download" center></ion-icon>
-                        </div>
+                         </div>
                         <div *ngIf="schat.messageType =='datepicker'" class="dateDiv">
                             <ion-item>
                                 <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="birthDate" (ionCancel)="cancelDate(birthDate)" (ionChange)="setDate(birthDate)"
                                     placeHolder="Please select Birth date.."></ion-datetime>
 									<ion-icon item-end name="calendar"></ion-icon>
                             </ion-item>
-                        </div>
+                        </div> 
                         <!--<div *ngIf="schat.messageType =='leadership'" style="display: inline-block;">
                             <ion-grid>
                                 <ion-row>
@@ -85,13 +86,19 @@
                             with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             <span class="read" (click)="goSafety()">Read More</span>
                         </p>-->
-                    </div>
+                    </div> 
+                   <!-- <ion-label class="chat noBorder" >
+                        <button ion-button round small (click)="about = true">About Greentin</button>
+                        <button ion-button round small>People</button>
+                        <button ion-button round small>Services</button>
+                        <button ion-button round small>Organization</button>
+                    </ion-label>-->
                 </div>
                 <div class="user clearfix">
                     <div class="clearfix" *ngIf="card.reply == null">
-                        <p class="chat noBorder" *ngFor="let opt of card.optionsList">
+                        <div class="chat noBorder" *ngFor="let opt of card.optionsList">
                             <button ion-button round small (click)="optClick(opt,i)">{{opt.optionText}}</button>
-                        </p>
+                        </div>
                     </div>
                     <div class="clearfix" *ngIf="card.reply != null">
                         <img src="assets/imgs/default_profile.png" class="Uicon" />

@@ -7,7 +7,7 @@
         <img src="assets/imgs/buddy logo.png" alt="logo" class="buddyIcon">
         <!--<img src="assets/imgs/Buddy_text.png" alt="logo" class="buddyName">-->
         <h1>SignUp</h1>
-        <ion-item pr class="mobileInput">
+        <ion-item class="mobileInput">
             <ion-icon class="loginIcon fa fa-mobile" item-left primary></ion-icon>
             <ion-input type="tel" name="mobileNo" [(ngModel)]="mobile" [maxlength]="10" onlyNumber placeholder="Enter Your Mobile Number"
                 (ionChange)="checkNumber(mobile)"></ion-input>
@@ -48,6 +48,6 @@
                 </button>
             </ion-col>
         </ion-row>
-        <span class="resend" *ngIf="sendOtp">Resend</span>
+        <span class="resend" *ngIf="showOtpDiv" (click)="sendOtp(mobile)">Resend</span>
     </div>
 </ion-content>

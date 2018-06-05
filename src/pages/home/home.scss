@@ -168,7 +168,7 @@ page-home {
     /* close commented backslash hack */
     .chatImg {
         display: inline-block;
-        width: 150px;
+        width: 200px;
         padding: 3px;
         border: 1px solid #DDD;
         background: #FFF;
@@ -176,9 +176,9 @@ page-home {
         opacity: 0.5;
         img {
             margin: auto;
-            max-width: 150px;
+            max-width: 200px;
             /*opacity: 0.2;*/
-			height: 75px;
+			height: 150px;
 			width: 100%;
         }
     }

@@ -33,6 +33,8 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { Push } from '@ionic-native/push';
 import { AuthProvider } from '../providers/auth/auth';
 import { GiftVoucherPage } from '../pages/gift-voucher/gift-voucher';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+//import { OrderByPipe } from '../pipes/custom/custom';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { GiftVoucherPage } from '../pages/gift-voucher/gift-voucher';
     AboutPage,
     ProfilePage,
     LeadershipPage,
-    GiftVoucherPage
+    GiftVoucherPage,
+  //  OrderByPipe
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,7 @@ import { GiftVoucherPage } from '../pages/gift-voucher/gift-voucher';
     AboutPage,
     ProfilePage,
     LeadershipPage,
-    GiftVoucherPage
+    GiftVoucherPage,
   ],
   providers: [
     StatusBar,
@@ -99,7 +102,9 @@ import { GiftVoucherPage } from '../pages/gift-voucher/gift-voucher';
     File,
     FileTransfer,
     AuthProvider,
-    Push
+    Push,
+    PhotoViewer,
   ]
 })
 export class AppModule { }
+ 
