@@ -66,4 +66,19 @@ export class AuthProvider {
       });
     });
   }
+  updateDate(date){
+   return new Promise(resolve => {
+      var apiUrl = "HRBuddy/updateUserDetails";
+      var objt = {
+        "id": localStorage.getItem('userId'),
+        "birth_Date": date
+      }
+      console.log(apiUrl + '==' + JSON.stringify(objt));
+      this.http.post(apiUrl, JSON.stringify(objt)).subscribe(data => {
+        resolve(data.json());
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

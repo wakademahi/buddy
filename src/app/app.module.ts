@@ -33,7 +33,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { Push } from '@ionic-native/push';
 import { AuthProvider } from '../providers/auth/auth';
 import { GiftVoucherPage } from '../pages/gift-voucher/gift-voucher';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
+//import { PhotoViewer } from '@ionic-native/photo-viewer';
 //import { OrderByPipe } from '../pipes/custom/custom';
 
 @NgModule({
@@ -103,7 +103,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
     FileTransfer,
     AuthProvider,
     Push,
-    PhotoViewer,
+    //PhotoViewer,
   ]
 })
 export class AppModule { }

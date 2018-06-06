@@ -9,8 +9,8 @@ import { ProfilePage } from '../profile/profile';
 import { ExplorePage } from '../explore/explore';
 import { AuthProvider } from '../../providers/auth/auth';
 import { GiftVoucherPage } from '../gift-voucher/gift-voucher';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
-import { OrderPipe } from 'ngx-order-pipe';
+//import { PhotoViewer } from '@ionic-native/photo-viewer';
+//import { OrderPipe } from 'ngx-order-pipe';
 
 
 @Component({
@@ -22,9 +22,9 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   cards: any = [];
   PrevCards: any = [];
-  height; width;
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public auth: AuthProvider, public platform: Platform, public toastCtrl: ToastController,public imgView:PhotoViewer) {
-    this.menu.swipeEnable(false);
+  height; width;/*public imgView:PhotoViewer*/
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public auth: AuthProvider, public platform: Platform, public toastCtrl: ToastController) {
+    this.menu.swipeEnable(true);
     setTimeout(() => {
       this.cards = JSON.parse(localStorage.getItem('cards'));
     }, 300)
@@ -86,9 +86,16 @@ export class HomePage {
   }
   setDate(date) {
     this.birthDate = date;
+	this.auth.updateDate(date).then((res:any)=>{
+		console.log(res);
+		this.presentToast('Birthdate update successfully','top');
+	});
   }
-  openImg(img){
-  this.imgView.show(img);
+  openImg(img,type){
+ // this.imgView.show(img);
+	if(type == 'aboutus'){
+		this.navCtrl.push(AboutPage);
+	}
   }
   gotoPage() {
     this.navCtrl.push(GiftVoucherPage);

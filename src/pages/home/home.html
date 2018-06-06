@@ -20,7 +20,7 @@
                     <img src="assets/imgs/budyy_chat.png" class="Sicon" />
                     <div *ngFor="let schat of card.cardDetails">
                         <p class="chat" *ngIf="schat.messageType =='text'">{{schat.messageText}}</p>
-                        <div pr *ngIf="schat.messageType =='img'" style="display: inline-block;" (click)="openImg(schat.messageText)">
+                        <div pr *ngIf="schat.messageType =='img'" style="display: inline-block;" (click)="openImg(schat.messageText,'aboutus')">
                             <div class="chatImg">
                                 <img src="{{schat.messageText}}" />
                             </div>
@@ -86,24 +86,21 @@
                             with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             <span class="read" (click)="goSafety()">Read More</span>
                         </p>-->
-                    </div> 
-                   <!-- <ion-label class="chat noBorder" >
-                        <button ion-button round small (click)="about = true">About Greentin</button>
-                        <button ion-button round small>People</button>
-                        <button ion-button round small>Services</button>
-                        <button ion-button round small>Organization</button>
-                    </ion-label>-->
+                    </div>
+					<ion-label class="chat noBorder" *ngIf="card.reply == null" style="width:85%;">
+                        <button ion-button round small *ngFor="let opt of card.optionsList" (click)="optClick(opt,i)">{{opt.optionText}}</button>
+                    </ion-label>
                 </div>
                 <div class="user clearfix">
-                    <div class="clearfix" *ngIf="card.reply == null">
+                    <!--<div class="clearfix" *ngIf="card.reply == null">
                         <div class="chat noBorder" *ngFor="let opt of card.optionsList">
                             <button ion-button round small (click)="optClick(opt,i)">{{opt.optionText}}</button>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="clearfix" *ngIf="card.reply != null">
                         <img src="assets/imgs/default_profile.png" class="Uicon" />
                         <div>
-                            <p class="chat" style="text-transform: capitalize;">{{card.reply.optionText}}</p>
+                            <p class="chat" style="text-transform: capitalize;font-weight:600;">{{card.reply.optionText}}</p>
                         </div>
                     </div>
                 </div>
